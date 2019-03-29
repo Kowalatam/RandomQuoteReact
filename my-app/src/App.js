@@ -39,7 +39,7 @@ class App extends React.Component {
     /* const isLoading = this.state.loading ? "Loading" : "done" */ //part of loading...
     
     return(
-      <div className="main">
+      <div>
         <DisplayTexts 
           /* isLoading={isLoading}  */          //part of loading...
           quotesData={this.state.quotesData} 
