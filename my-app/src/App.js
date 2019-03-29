@@ -5,7 +5,7 @@ class App extends React.Component {
   constructor(){
     super()
     this.state = {
-      loading: false,
+      //loading: false,  //part of loading... set up removed as api call is quite fast
       quotesData: {}
     }
     this.handleClick = this.handleClick.bind(this)
@@ -14,9 +14,9 @@ class App extends React.Component {
   // fetch the data from the api and assign to this.state.quotesdata
   componentDidMount(){
     //setstate loading true so Loading is diplayed while fectch is still running
-    this.setState({
+  /*   this.setState({      //part of loading...
       loading : true 
-    })
+    }) */
 
     fetch('https://quota.glitch.me/random')
     .then(response => response.json())
@@ -26,9 +26,9 @@ class App extends React.Component {
       })
     })
 
-    this.setState({
+    /* this.setState({      //part of loading...
       loading: false
-    })
+    }) */
   }
   // when button is clicked, get new quote from componentDidMount()
   handleClick(){
@@ -36,23 +36,16 @@ class App extends React.Component {
   }
 
   render(){
-    const isLoading = this.state.loading ? "Loading" : "done"
+    /* const isLoading = this.state.loading ? "Loading" : "done" */ //part of loading...
     
     return(
-      <div>
+      <div className="main">
         <DisplayTexts 
-          isLoading={isLoading} 
+          /* isLoading={isLoading}  */          //part of loading...
           quotesData={this.state.quotesData} 
           handleClick={this.handleClick}
         />
       </div>
-
-      /* <div>
-            <h1>{isLoading}</h1>
-            <h1>{this.state.quotesData.quoteText}</h1>
-            <h1>{this.state.quotesData.quoteAuthor}</h1>
-            <button onClick={this.handleClick}>Click Me</button>
-      </div> */
     )
   }
 }
